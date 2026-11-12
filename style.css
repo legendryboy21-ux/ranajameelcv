@@ -1,0 +1,642 @@
+/* =========================================================
+   1. TACTICAL CHARCOAL & SAFETY AMBER THEME VARIABLES
+========================================================= */
+:root {
+  --bg-page: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-subcard: #F4F4F5;
+  --text-heading: #18181B;
+  --text-body: #3F3F46;
+  --text-muted: #71717A;
+  --accent-primary: #D97706;      /* Executive Safety Amber / Gold */
+  --accent-hover: #B45309;
+  --accent-soft: rgba(217, 119, 6, 0.1);
+  --accent-glow: rgba(217, 119, 6, 0.28);
+  --charcoal-dark: #18181B;
+  --border-subtle: #E4E4E7;
+  --whatsapp-green: #15803D;
+  --whatsapp-hover: #166534;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding: 36px 16px 68px;
+}
+
+h1, h2, h3, h4, .rank-badge, .date-badge, .action-btn, .popup-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* =========================================================
+   2. MAIN CONTAINER & CARD ARCHITECTURE
+========================================================= */
+.container {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Every Main Div */
+.main-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 30px 34px;
+  box-shadow: 0 4px 16px rgba(24, 24, 27, 0.04);
+  transition: all 0.3s ease;
+}
+
+.main-card:hover {
+  transform: scale(1.015);
+  border-color: rgba(217, 119, 6, 0.55);
+  box-shadow: 0 12px 30px var(--accent-glow);
+}
+
+/* Every Nested Sub-Div */
+.sub-card {
+  background-color: var(--bg-subcard);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 18px 20px;
+  transition: all 0.3s ease;
+}
+
+.sub-card:hover {
+  transform: scale(1.025);
+  background-color: #FFFFFF;
+  border-color: var(--accent-primary);
+  box-shadow: 0 8px 22px var(--accent-glow);
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.2px;
+}
+
+.section-title::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 22px;
+  background-color: var(--accent-primary);
+  border-radius: 3px;
+}
+
+h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+
+p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+}
+
+/* =========================================================
+   3. EXECUTIVE DARK-ACCENT HEADER & PORTRAIT
+========================================================= */
+.header-card {
+  background: linear-gradient(135deg, #18181B 0%, #27272A 100%);
+  border: 1px solid #3F3F46;
+  border-top: 4px solid var(--accent-primary);
+  color: #FAFAFA;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.profile-pic-wrapper {
+  position: relative;
+  width: 158px;
+  height: 158px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent-primary), #FBBF24);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.35);
+}
+
+.profile-pic-wrapper:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 32px rgba(217, 119, 6, 0.55);
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  background-color: #27272A;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.06) saturate(1.05) brightness(1.02);
+  display: block;
+}
+
+.zoom-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 2px solid #18181B;
+  letter-spacing: 0.3px;
+}
+
+.header-info {
+  flex: 1;
+}
+
+.rank-badge {
+  display: inline-block;
+  background-color: rgba(217, 119, 6, 0.18);
+  color: #FBBF24;
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 0.4px;
+}
+
+.full-name {
+  font-size: 2.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.job-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #F59E0B;
+  margin: 4px 0 10px;
+}
+
+.header-tagline {
+  font-size: 0.95rem;
+  color: #D4D4D8;
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+/* =========================================================
+   4. INTERACTIVE CONTACT BUTTONS (CLEAN SVG ICONS)
+========================================================= */
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  border: 1px solid var(--accent-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.4);
+}
+
+.btn-outline {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FAFAFA;
+  border: 1px solid #52525B;
+}
+
+.btn-outline:hover {
+  background-color: #FFFFFF;
+  border-color: var(--accent-primary);
+  color: var(--text-heading);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(217, 119, 6, 0.35);
+}
+
+/* =========================================================
+   5. GRID UTILITIES & LISTS
+========================================================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.full-span {
+  grid-column: 1 / -1;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.exp-subtitle {
+  font-weight: 600;
+  color: var(--accent-primary);
+  font-size: 0.95rem;
+}
+
+.exp-bases {
+  background-color: #FFFFFF;
+  border-left: 3px solid var(--accent-primary);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+}
+
+.date-badge {
+  display: inline-block;
+  background-color: var(--accent-soft);
+  color: var(--accent-hover);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.issuer {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.clean-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.clean-list li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 0.93rem;
+}
+
+.clean-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+}
+
+.rec-item p {
+  position: relative;
+  padding-left: 16px;
+}
+
+.rec-item p::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 2px;
+  background-color: var(--accent-primary);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.skill-pill {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.91rem;
+  color: var(--text-heading);
+  padding: 12px 14px;
+}
+
+.signature {
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   6. MODALS (PROFILE LIGHTBOX & PHONE POPUP)
+========================================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-close {
+  position: absolute;
+  top: 22px;
+  right: 28px;
+  background: rgba(255, 255, 255, 0.14);
+  border: none;
+  color: #FFFFFF;
+  font-size: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.modal-close:hover {
+  background: var(--accent-primary);
+  transform: rotate(90deg);
+}
+
+/* Lightbox Inner */
+.lightbox-content {
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+  animation: popIn 0.3s ease;
+}
+
+.lightbox-circle {
+  width: 260px;
+  height: 260px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, var(--accent-primary), #FBBF24);
+  box-shadow: 0 12px 36px rgba(217, 119, 6, 0.45);
+}
+
+.lightbox-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  image-rendering: -webkit-optimize-contrast;
+  filter: contrast(1.06) saturate(1.05);
+}
+
+.lightbox-name {
+  color: #FFFFFF;
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.lightbox-bio {
+  color: #E4E4E7;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* Phone Popup Box */
+.popup-box {
+  position: relative;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 32px 28px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(24, 24, 27, 0.35);
+  animation: popIn 0.3s ease;
+}
+
+.dark-close {
+  top: 14px;
+  right: 14px;
+  background: #F4F4F5;
+  color: var(--text-heading);
+  font-size: 1.6rem;
+  width: 36px;
+  height: 36px;
+}
+
+.dark-close:hover {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+.popup-header {
+  margin-bottom: 22px;
+}
+
+.popup-icon-circle {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.popup-header p {
+  font-weight: 700;
+  color: var(--accent-primary);
+  font-size: 1.05rem;
+}
+
+.popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.call-btn {
+  background-color: var(--charcoal-dark);
+}
+
+.call-btn:hover {
+  background-color: var(--accent-primary);
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px var(--accent-glow);
+}
+
+.whatsapp-btn {
+  background-color: var(--whatsapp-green);
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--whatsapp-hover);
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(21, 128, 61, 0.3);
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   7. RESPONSIVE DESIGN
+========================================================= */
+@media (max-width: 768px) {
+  .main-card {
+    padding: 22px 18px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-actions {
+    justify-content: center;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .full-name {
+    font-size: 1.65rem;
+  }
+
+  .lightbox-circle {
+    width: 210px;
+    height: 210px;
+  }
+}
